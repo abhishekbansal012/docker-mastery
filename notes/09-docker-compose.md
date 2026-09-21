@@ -1,6 +1,6 @@
 # Docker Compose
 
-[← Back to Index](./README.md) · [Previous: Storage & Volumes](./08-storage-volumes.md)
+[← Back to Index](./README.md) · [Previous: Storage & Volumes](./08-storage-volumes/README.md)
 
 ---
 

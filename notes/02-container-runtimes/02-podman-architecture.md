@@ -458,13 +458,17 @@ loginctl enable-linger $USER
 
 ---
 
-## Podman Machine (macOS / Windows)
+## Podman on macOS / Windows — Podman Machine & Podman Desktop
 
-Podman doesn't run natively on macOS/Windows (needs a Linux kernel). `podman machine` manages a lightweight Linux VM behind the scenes.
+Podman doesn't run natively on macOS/Windows (needs a Linux kernel). Two complementary tools solve this:
+
+1. **`podman machine`** — CLI tool that creates and manages a lightweight Linux VM behind the scenes
+2. **Podman Desktop** — A full GUI application for managing containers, pods, images, and Kubernetes resources
 
 ```mermaid
 graph TB
     subgraph "macOS / Windows"
+        PD["Podman Desktop<br/>(GUI Application)"]
         CLI2["podman CLI"]
     end
 
@@ -475,12 +479,16 @@ graph TB
         CT["Containers"]
     end
 
+    PD -->|"API"| PODMAN_SVC
     CLI2 -->|"SSH / API"| PODMAN_SVC
     PODMAN_SVC --> CONMON2 --> CRUN2 --> CT
 
+    style PD fill:#e74c3c,color:#fff
     style CLI2 fill:#892ca0,color:#fff
     style PODMAN_SVC fill:#892ca0,color:#fff
 ```
+
+### Podman Machine (CLI)
 
 ```bash
 # Initialize a Podman VM
@@ -495,6 +503,29 @@ podman run -d nginx
 # SSH into the VM if needed
 podman machine ssh
 ```
+
+**VM providers by platform:**
+
+| Platform | VM Provider |
+|----------|------------|
+| **macOS** | Apple Virtualization (`applehv`) with Rosetta for x86_64 translation (near-native speed) |
+| **Windows** | WSL2 (default) or Hyper-V |
+| **Linux** | Optional — runs natively, no VM needed |
+
+### Podman Desktop (GUI)
+
+[Podman Desktop](https://podman-desktop.io) is a standalone open-source desktop application — a graphical counterpart to the `podman` CLI. It's a **CNCF Sandbox project** (since Nov 2024) available on Linux, macOS, and Windows.
+
+**Key capabilities:**
+- **Container management** — build, run, stop, inspect, and delete containers and pods through a visual interface
+- **Image management** — pull, push, build, and manage images across registries
+- **Kubernetes integration** — explore and manage pods, deployments, services, and ingresses; spin up local clusters via Kind or Minikube extensions
+- **Extensions** — plugin system supporting Kind, Minikube, Headlamp, and community extensions
+- **Multi-engine support** — works with Podman and Docker engines
+- **GPU acceleration** — supports GPU passthrough for local AI/ML container workflows
+- **Multi-arch builds** — build images for ARM and x86_64 from the GUI
+
+> Podman Desktop handles Podman Machine lifecycle (init, start, stop) automatically through its GUI — no CLI required for getting started.
 
 ---
 
