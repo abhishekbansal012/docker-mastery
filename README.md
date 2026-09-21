@@ -14,7 +14,7 @@ In-depth notes covering all DCA exam domains, plus foundational topics and suppl
 |---|-------|-------------|
 | 01 | [Containers Fundamentals](./notes/01-containers-fundamentals.md) | OS-level virtualization, containers vs VMs, Linux kernel features (namespaces, cgroups), LXC/LXD |
 | 02 | [Container Runtimes](./notes/02-container-runtimes/README.md) | Docker architecture, Podman architecture, Docker vs Podman comparison |
-| 03 | [Orchestration](./notes/03-orchestration.md) | Docker Swarm — services, tasks, nodes, networking, secrets (25% of exam) |
+| 03 | [Orchestration](./notes/03-orchestration/README.md) | Docker Swarm — architecture, services, updates, networking, secrets, stacks, security (25% of exam) |
 | 04 | [Image Creation & Management](./notes/04-image-creation-management.md) | Dockerfile, image layers, registries, tagging, multi-stage builds (20% of exam) |
 | 05 | [Installation & Configuration](./notes/05-installation-configuration.md) | Docker Engine setup, daemon configuration, storage drivers, logging (15% of exam) |
 | 06 | [Networking](./notes/06-networking/README.md) | CNM, bridge, overlay, host, macvlan, ipvlan, DNS, port publishing (15% of exam) |
@@ -45,7 +45,14 @@ docker-mastery/
 │   │   ├── 01-docker-architecture.md
 │   │   ├── 02-podman-architecture.md
 │   │   └── 03-docker-vs-podman.md
-│   ├── 03-orchestration.md
+│   ├── 03-orchestration/             # Swarm architecture, services, updates, networking, security
+│   │   ├── 01-swarm-architecture.md
+│   │   ├── 02-services-tasks-scheduling.md
+│   │   ├── 03-rolling-updates-rollbacks.md
+│   │   ├── 04-swarm-networking.md
+│   │   ├── 05-secrets-and-configs.md
+│   │   ├── 06-stacks-and-compose.md
+│   │   └── 07-swarm-security-and-locking.md
 │   ├── 04-image-creation-management.md
 │   ├── 05-installation-configuration.md
 │   ├── 06-networking/                # CNM, bridge, overlay, DNS, port publishing

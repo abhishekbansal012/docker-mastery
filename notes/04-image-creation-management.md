@@ -1,6 +1,6 @@
 # Domain 2: Image Creation, Management & Registry (20% of Exam)
 
-[← Back to Index](./README.md) · [Previous: Orchestration](./03-orchestration.md)
+[← Back to Index](./README.md) · [Previous: Orchestration](./03-orchestration/README.md)
 
 > 🔴 **Second highest weight — master Dockerfile and image workflows!**
 

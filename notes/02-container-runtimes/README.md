@@ -35,4 +35,4 @@ graph LR
 
 ---
 
-[← Back to Main Index](../README.md) · [Next: Orchestration →](../03-orchestration.md)
+[← Back to Main Index](../README.md) · [Next: Orchestration →](../03-orchestration/README.md)

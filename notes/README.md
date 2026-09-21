@@ -28,7 +28,7 @@ pie title DCA Exam Domain Weightage
 |---|-------|-------------|--------|
 | 📘 | [Containers Fundamentals & Evolution](./01-containers-fundamentals.md) | Background | — |
 | 📘 | [Container Runtimes — Docker, Podman & Comparison](./02-container-runtimes/README.md) | Background | — |
-| 🔴 | [Orchestration (Swarm)](./03-orchestration.md) | Domain 1 | **25%** |
+| 🔴 | [Orchestration (Swarm)](./03-orchestration/README.md) | Domain 1 | **25%** |
 | 🔴 | [Image Creation, Management & Registry](./04-image-creation-management.md) | Domain 2 | **20%** |
 | 🟡 | [Installation & Configuration](./05-installation-configuration.md) | Domain 3 | **15%** |
 | 🟡 | [Networking](./06-networking/README.md) | Domain 4 | **15%** |

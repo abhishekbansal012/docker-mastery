@@ -269,4 +269,4 @@ stateDiagram-v2
 
 ---
 
-[← Back to Section Index](./README.md) · [← Main Index](../README.md) · [Next: Podman Architecture →](./02-podman-architecture.md) · [Orchestration →](../03-orchestration.md)
+[← Back to Section Index](./README.md) · [← Main Index](../README.md) · [Next: Podman Architecture →](./02-podman-architecture.md) · [Orchestration →](../03-orchestration/README.md)
