@@ -235,4 +235,4 @@ docker run --memory=512m --cpus=1.5 nginx
 
 ---
 
-[← Back to Index](./README.md) · [Next: Networking →](./06-networking.md)
+[← Back to Index](./README.md) · [Next: Networking →](./06-networking/README.md)

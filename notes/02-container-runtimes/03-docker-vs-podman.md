@@ -1,6 +1,6 @@
 # Docker vs Podman — Comprehensive Comparison
 
-[← Back to Section Index](./README.md) · [← Main Index](../README.md) · [Docker Architecture](./01-docker-architecture.md) · [Podman Architecture](./02-podman-architecture.md)
+[← Back to Section Index](./README.md) · [← Main Index](../README.md) · [Docker Architecture](./01-docker-architecture.md) · [Podman Architecture](./02-podman-architecture.md) · [Next: containerd Architecture →](./04-containerd-architecture.md)
 
 ---
 
@@ -468,17 +468,39 @@ cp, diff, port, top, stats, commit, save, load, export, import
 
 ## 14. macOS / Windows Support
 
-Neither Docker nor Podman runs natively on macOS/Windows — both need a Linux VM.
+Neither Docker nor Podman runs natively on macOS/Windows — both need a Linux VM. Both now offer full **desktop GUI applications**.
 
-| Feature | Docker Desktop | Podman Machine |
+| Feature | Docker Desktop | Podman Desktop |
 |---------|---------------|----------------|
-| **VM technology** | HyperKit / WSL2 / Apple Virtualization | QEMU / Apple Virtualization / WSL2 (Podman 5+) |
-| **GUI** | Full desktop app (dashboard, extensions) | CLI only (`podman machine init/start`) |
-| **File sharing** | VirtioFS / gRPC FUSE / osxfs | VirtioFS (Podman 5+) |
-| **Kubernetes** | Built-in single-node K8s cluster | No (use minikube/kind separately) |
-| **License** | Free for personal / small business, paid for enterprise (>250 employees) | Fully open source, always free |
-| **Setup experience** | Polished installer, one-click | CLI-based, slightly more manual |
-| **Resource management** | GUI sliders for CPU/memory | CLI flags (`podman machine init --cpus 4 --memory 4096`) |
+| **Type** | Desktop GUI application | Desktop GUI application |
+| **VM technology (macOS)** | Apple Virtualization / HyperKit | Apple Virtualization (`applehv`) with Rosetta for x86_64 translation |
+| **VM technology (Windows)** | WSL2 / Hyper-V | WSL2 / Hyper-V |
+| **Linux support** | Yes | Yes (native, no VM needed) |
+| **GUI features** | Dashboard, container management, extensions | Container/pod/image management, Kubernetes explorer, extensions |
+| **Kubernetes** | Built-in single-node K8s cluster | Via extensions — Kind, Minikube (create clusters from the GUI) |
+| **Extensions** | Docker extensions marketplace | Extensible plugin system (Kind, Minikube, Headlamp, and more) |
+| **File sharing** | VirtioFS / gRPC FUSE / osxfs | VirtioFS |
+| **Multi-arch builds** | Yes (buildx) | Yes (Buildah, multi-arch support) |
+| **GPU acceleration** | Yes | Yes (for local AI/ML workflows) |
+| **License** | Free for personal / small business, paid for enterprise (>250 employees) | Fully open source, always free (Apache 2.0) |
+| **CNCF status** | Not a CNCF project | CNCF Sandbox project (since Nov 2024) |
+| **Setup experience** | Polished installer, one-click | Polished installer, one-click (macOS, Windows, Linux) |
+| **Resource management** | GUI sliders for CPU/memory | GUI-based VM configuration + CLI flags |
+| **CLI fallback** | `docker` CLI | `podman machine init/start` (CLI still fully available) |
+| **Downloads** | Widely adopted | 3M+ downloads (as of mid-2025) |
+
+> **Podman Desktop** ([podman-desktop.io](https://podman-desktop.io)) is a standalone open-source GUI application — separate from the `podman` CLI. It provides a graphical interface for managing containers, pods, images, volumes, and Kubernetes resources. It supports multiple container engines (including Docker) via its extension system.
+>
+> On macOS, Podman Desktop uses Apple's native hypervisor with Rosetta enabled by default, providing near-native performance for x86_64 builds. On Windows, it creates a WSL2 distribution or uses Hyper-V for the Podman machine.
+
+```bash
+# Podman Desktop also supports CLI-based machine management
+podman machine init
+podman machine start
+podman run -d nginx
+
+# Or just use the GUI — same result
+```
 
 ---
 
@@ -487,10 +509,14 @@ Neither Docker nor Podman runs natively on macOS/Windows — both need a Linux V
 | Aspect | Docker | Podman |
 |--------|--------|--------|
 | **Default registry** | Docker Hub | No default (configurable via `registries.conf`) |
+| **Desktop GUI** | Docker Desktop | [Podman Desktop](https://podman-desktop.io) — CNCF Sandbox project, 3M+ downloads |
+| **Desktop extensions** | Docker extensions marketplace | Plugin system — Kind, Minikube, Headlamp, community extensions |
+| **Desktop multi-engine** | Docker engine only | Supports Podman and Docker engines |
 | **Tutorials & docs** | Massive community, most container tutorials are Docker-first | Growing, strong Red Hat / Fedora community |
 | **CI/CD support** | Native in GitHub Actions, GitLab CI, etc. | Supported but often requires config tweaks |
-| **IDE integration** | Docker extension for VS Code, IntelliJ, etc. | Podman Desktop (growing), Docker extensions work via API compat |
+| **IDE integration** | Docker extension for VS Code, IntelliJ, etc. | VS Code includes Podman support; Podman Desktop integrates with Dev Containers |
 | **Ships with OS** | Must install separately | Ships by default on RHEL, Fedora, CentOS Stream |
+| **CNCF affiliation** | Not a CNCF project | Podman Desktop is a CNCF Sandbox project (since Nov 2024) |
 | **Stack Overflow questions** | ~180K+ | ~5K+ |
 
 ---
@@ -506,7 +532,7 @@ Neither Docker nor Podman runs natively on macOS/Windows — both need a Linux V
 | Kubernetes-aligned development | **Podman** | Native pods, `generate kube`, `play kube` |
 | Docker Swarm orchestration | **Docker** | Swarm is Docker-only |
 | RHEL / Fedora / CentOS | **Podman** | Pre-installed, Docker not in default repos |
-| macOS/Windows developer UX | **Docker Desktop** | Polished GUI, built-in K8s, extensions |
+| macOS/Windows developer UX | **Docker Desktop** | More mature GUI, but Podman Desktop is catching up fast (CNCF Sandbox, 3M+ downloads) |
 | Running 500+ containers on one host | **Docker** | In-memory state = faster queries at scale |
 | Minimal resource footprint | **Podman** | No idle daemon consuming memory |
 | Systemd-native service management | **Podman** | `podman generate systemd` for proper service units |
@@ -532,4 +558,4 @@ Docker  = Daemon-based    │ Podman = Daemonless
 
 ---
 
-[← Back to Section Index](./README.md) · [← Main Index](../README.md) · [Docker Architecture](./01-docker-architecture.md) · [Podman Architecture](./02-podman-architecture.md)
+[← Back to Section Index](./README.md) · [← Main Index](../README.md) · [Docker Architecture](./01-docker-architecture.md) · [Podman Architecture](./02-podman-architecture.md) · [Next: containerd Architecture →](./04-containerd-architecture.md)

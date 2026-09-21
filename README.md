@@ -17,9 +17,9 @@ In-depth notes covering all DCA exam domains, plus foundational topics and suppl
 | 03 | [Orchestration](./notes/03-orchestration.md) | Docker Swarm — services, tasks, nodes, networking, secrets (25% of exam) |
 | 04 | [Image Creation & Management](./notes/04-image-creation-management.md) | Dockerfile, image layers, registries, tagging, multi-stage builds (20% of exam) |
 | 05 | [Installation & Configuration](./notes/05-installation-configuration.md) | Docker Engine setup, daemon configuration, storage drivers, logging (15% of exam) |
-| 06 | [Networking](./notes/06-networking.md) | Bridge, overlay, host, macvlan networks, DNS, load balancing (15% of exam) |
+| 06 | [Networking](./notes/06-networking/README.md) | CNM, bridge, overlay, host, macvlan, ipvlan, DNS, port publishing (15% of exam) |
 | 07 | [Security](./notes/07-security.md) | Namespaces, cgroups, seccomp, AppArmor, Docker Content Trust, secrets (15% of exam) |
-| 08 | [Storage & Volumes](./notes/08-storage-volumes.md) | Volumes, bind mounts, tmpfs, storage drivers (10% of exam) |
+| 08 | [Storage & Volumes](./notes/08-storage-volumes/README.md) | Volumes, bind mounts, tmpfs, image mounts, storage drivers, CoW (10% of exam) |
 | 09 | [Docker Compose](./notes/09-docker-compose.md) | Multi-container applications, YAML configuration, services, networks, volumes |
 | 10 | [Commands Cheat Sheet](./notes/10-commands-cheatsheet.md) | Quick reference for commonly used Docker commands |
 | 11 | [Exam Tips & Strategy](./notes/11-exam-tips.md) | DCA exam format, study strategy, tips for exam day |
@@ -48,9 +48,20 @@ docker-mastery/
 │   ├── 03-orchestration.md
 │   ├── 04-image-creation-management.md
 │   ├── 05-installation-configuration.md
-│   ├── 06-networking.md
+│   ├── 06-networking/                # CNM, bridge, overlay, DNS, port publishing
+│   │   ├── 01-container-network-model.md
+│   │   ├── 02-bridge-networks.md
+│   │   ├── 03-overlay-networks.md
+│   │   ├── 04-host-macvlan-ipvlan-none.md
+│   │   ├── 05-dns-and-service-discovery.md
+│   │   └── 06-port-publishing-and-traffic-flow.md
 │   ├── 07-security.md
-│   ├── 08-storage-volumes.md
+│   ├── 08-storage-volumes/          # Volumes, bind mounts, tmpfs, image mounts, CoW
+│   │   ├── 01-volumes.md
+│   │   ├── 02-bind-mounts.md
+│   │   ├── 03-tmpfs-mounts.md
+│   │   ├── 04-image-mounts-and-named-pipes.md
+│   │   └── 05-storage-drivers-and-cow.md
 │   ├── 09-docker-compose.md
 │   ├── 10-commands-cheatsheet.md
 │   └── 11-exam-tips.md

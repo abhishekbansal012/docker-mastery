@@ -31,9 +31,9 @@ pie title DCA Exam Domain Weightage
 | 🔴 | [Orchestration (Swarm)](./03-orchestration.md) | Domain 1 | **25%** |
 | 🔴 | [Image Creation, Management & Registry](./04-image-creation-management.md) | Domain 2 | **20%** |
 | 🟡 | [Installation & Configuration](./05-installation-configuration.md) | Domain 3 | **15%** |
-| 🟡 | [Networking](./06-networking.md) | Domain 4 | **15%** |
+| 🟡 | [Networking](./06-networking/README.md) | Domain 4 | **15%** |
 | 🟡 | [Security](./07-security.md) | Domain 5 | **15%** |
-| 🟢 | [Storage & Volumes](./08-storage-volumes.md) | Domain 6 | **10%** |
+| 🟢 | [Storage & Volumes](./08-storage-volumes/README.md) | Domain 6 | **10%** |
 | 📎 | [Docker Compose](./09-docker-compose.md) | Supplementary | — |
 | 📎 | [Commands Cheat Sheet](./10-commands-cheatsheet.md) | Quick Reference | — |
 | 📎 | [Exam Tips & Strategy](./11-exam-tips.md) | Exam Prep | — |

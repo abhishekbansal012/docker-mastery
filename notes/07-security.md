@@ -1,6 +1,6 @@
 # Domain 5: Security (15% of Exam)
 
-[← Back to Index](./README.md) · [Previous: Networking](./06-networking.md)
+[← Back to Index](./README.md) · [Previous: Networking](./06-networking/README.md)
 
 ---
 
@@ -292,4 +292,4 @@ docker scout quickview myimage:1.0
 
 ---
 
-[← Back to Index](./README.md) · [Next: Storage & Volumes →](./08-storage-volumes.md)
+[← Back to Index](./README.md) · [Next: Storage & Volumes →](./08-storage-volumes/README.md)
